@@ -1,0 +1,6 @@
+{
+  "name": "VITALX Health",
+  "description": "Mobile-first connected health and daily recovery app inside an iPhone 15 Pro mockup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
