@@ -113,7 +113,7 @@ export const AiCoachView: React.FC<AiCoachViewProps> = ({
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-start justify-between gap-2">
           <div>
-            <p className="text-[11px] font-semibold text-emerald-700">Хувийн AI зөвлөх</p>
+            <p className="text-[11px] font-semibold text-blue-700">Хувийн AI зөвлөх</p>
             <h1 className="font-display text-xl font-bold text-slate-900">Өдөр тутмын зөвлөгөө</h1>
           </div>
           <button
@@ -174,7 +174,7 @@ export const AiCoachView: React.FC<AiCoachViewProps> = ({
               <button
                 type="submit"
                 disabled={regenerating}
-                className="flex min-h-[42px] flex-1 items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-3 text-xs font-bold text-white"
+                className="flex min-h-[42px] flex-1 items-center justify-center gap-1.5 rounded-xl bg-blue-600 px-3 text-xs font-bold text-white"
               >
                 {regenerating ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <RefreshCw className="h-3.5 w-3.5" />}
                 AI шинэчлэх
@@ -193,28 +193,28 @@ export const AiCoachView: React.FC<AiCoachViewProps> = ({
         <div className="mt-4 grid grid-cols-2 gap-2.5">
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
             <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-              <Utensils className="h-3.5 w-3.5 text-emerald-600" />
+              <Utensils className="h-3.5 w-3.5 text-blue-600" />
               Хооллолт
             </div>
             <p className="mt-1 text-[11px] leading-relaxed text-slate-700">{plan.nutritionNote}</p>
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
             <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-              <Footprints className="h-3.5 w-3.5 text-emerald-600" />
+              <Footprints className="h-3.5 w-3.5 text-blue-600" />
               Хөдөлгөөн
             </div>
             <p className="mt-1 text-[11px] leading-relaxed text-slate-700">{plan.movementNote}</p>
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
             <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-              <Droplets className="h-3.5 w-3.5 text-emerald-600" />
+              <Droplets className="h-3.5 w-3.5 text-blue-600" />
               Ус уух
             </div>
             <p className="mt-1 text-[11px] leading-relaxed text-slate-700">{plan.hydrationNote}</p>
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
             <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-              <Moon className="h-3.5 w-3.5 text-emerald-600" />
+              <Moon className="h-3.5 w-3.5 text-blue-600" />
               Амралт
             </div>
             <p className="mt-1 text-[11px] leading-relaxed text-slate-700">{plan.restNote}</p>
@@ -234,7 +234,7 @@ export const AiCoachView: React.FC<AiCoachViewProps> = ({
             >
               <span
                 className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
-                  task.done ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-slate-300 bg-white'
+                  task.done ? 'border-blue-600 bg-blue-600 text-white' : 'border-slate-300 bg-white'
                 }`}
               >
                 {task.done && <Check className="h-3 w-3" />}
@@ -252,7 +252,7 @@ export const AiCoachView: React.FC<AiCoachViewProps> = ({
 
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-center gap-2">
-          <Sparkles className="h-4 w-4 text-emerald-600" />
+          <Sparkles className="h-4 w-4 text-blue-600" />
           <h2 className="font-display text-lg font-bold text-slate-900">Оройн дүгнэлт ба маргааш</h2>
         </div>
 
@@ -269,7 +269,7 @@ export const AiCoachView: React.FC<AiCoachViewProps> = ({
                   onClick={() => setEnergyLevel(lvl)}
                   className={`tabular-nums min-h-[40px] flex-1 rounded-xl border text-xs font-bold ${
                     energyLevel === lvl
-                      ? 'border-emerald-600 bg-emerald-600 text-white'
+                      ? 'border-blue-600 bg-blue-600 text-white'
                       : 'border-slate-200 bg-slate-50 text-slate-700'
                   }`}
                 >
@@ -313,7 +313,7 @@ export const AiCoachView: React.FC<AiCoachViewProps> = ({
           )}
 
           {latestFeedback && (
-            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-xs text-emerald-950">
+            <div className="rounded-xl border border-blue-200 bg-blue-50 p-3 text-xs text-blue-950">
               <p className="font-bold">Маргаашийн тохируулга:</p>
               <p className="mt-1">{latestFeedback}</p>
             </div>
@@ -323,7 +323,7 @@ export const AiCoachView: React.FC<AiCoachViewProps> = ({
             <button
               type="submit"
               disabled={submittingCheckIn}
-              className="flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white hover:bg-emerald-700 disabled:opacity-60"
+              className="flex min-h-[44px] flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-700 disabled:opacity-60"
             >
               {submittingCheckIn ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Оройн дүгнэлт илгээх'}
             </button>

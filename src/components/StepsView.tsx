@@ -137,7 +137,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-center justify-between gap-2">
           <div>
-            <p className="text-[11px] font-semibold text-emerald-700">8,000 алхам = 1 зоос</p>
+            <p className="text-[11px] font-semibold text-blue-700">8,000 алхам = 1 зоос</p>
             <h1 className="font-display text-xl font-bold text-slate-900">Алхалт ба Зоос</h1>
           </div>
           <button
@@ -145,7 +145,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
             onClick={() => onToggleMotionConsent(!consent.motionConnected)}
             className={`min-h-[38px] rounded-xl border px-3 py-1.5 text-[11px] font-bold whitespace-nowrap ${
               consent.motionConnected
-                ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+                ? 'border-blue-200 bg-blue-50 text-blue-800'
                 : 'border-slate-300 bg-slate-100 text-slate-700'
             }`}
           >
@@ -168,7 +168,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
             <p className="text-[11px] text-slate-500">Нийт олсон</p>
-            <p className="tabular-nums text-sm font-bold text-emerald-700">{wallet.coinsEarned} зоос</p>
+            <p className="tabular-nums text-sm font-bold text-blue-700">{wallet.coinsEarned} зоос</p>
           </div>
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
             <p className="text-[11px] text-slate-500">Зарцуулсан</p>
@@ -179,12 +179,12 @@ export const StepsView: React.FC<StepsViewProps> = ({
         <div className="mt-3 rounded-xl border border-slate-200 p-3">
           <div className="flex justify-between text-xs">
             <span className="font-semibold text-slate-800">Дараагийн зоос</span>
-            <span className="tabular-nums font-bold text-emerald-700">
+            <span className="tabular-nums font-bold text-blue-700">
               {liveRemainderSteps.toLocaleString('en-US')} / 8,000 ({progressPct}%)
             </span>
           </div>
           <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
-            <div className="h-full rounded-full bg-emerald-600 transition-all" style={{ width: `${progressPct}%` }} />
+            <div className="h-full rounded-full bg-blue-600 transition-all" style={{ width: `${progressPct}%` }} />
           </div>
           <p className="mt-1.5 text-[11px] text-slate-500">
             Өдрийн хязгааргүй (16,000 = 2 зоос). Үлдэгдэл дараагийн өдөрт шилжинэ.
@@ -196,12 +196,12 @@ export const StepsView: React.FC<StepsViewProps> = ({
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-start justify-between gap-2">
           <div className="flex items-center gap-2">
-            <MapPin className="h-4 w-4 text-emerald-600" />
+            <MapPin className="h-4 w-4 text-blue-600" />
             <h2 className="font-display text-lg font-bold text-slate-900">Утасны байршлаар тоолох</h2>
           </div>
           <span
             className={`text-[11px] font-bold whitespace-nowrap ${
-              gpsTracking ? 'text-emerald-700' : 'text-slate-500'
+              gpsTracking ? 'text-blue-700' : 'text-slate-500'
             }`}
           >
             {gpsStatus === 'tracking'
@@ -225,7 +225,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
           </div>
           <div>
             <p className="text-[10px] text-slate-500">Нэмэгдсэн алхам</p>
-            <p className="tabular-nums text-sm font-bold text-emerald-700">+{pendingGeoSteps}</p>
+            <p className="tabular-nums text-sm font-bold text-blue-700">+{pendingGeoSteps}</p>
           </div>
           <div>
             <p className="text-[10px] text-slate-500">GPS нарийвчлал</p>
@@ -242,7 +242,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
             className={`flex min-h-[46px] w-full items-center justify-center gap-2 rounded-xl px-4 text-xs font-bold text-white transition-colors ${
               gpsTracking
                 ? 'bg-rose-600 hover:bg-rose-700'
-                : 'bg-emerald-600 hover:bg-emerald-700'
+                : 'bg-blue-600 hover:bg-blue-700'
             }`}
           >
             {gpsTracking ? (
@@ -263,7 +263,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
               type="button"
               disabled={syncingSteps}
               onClick={() => void onFlushGeoSteps()}
-              className="min-h-[40px] w-full rounded-xl border border-emerald-200 bg-emerald-50 px-3 text-xs font-bold text-emerald-800 hover:bg-emerald-100 disabled:opacity-60"
+              className="min-h-[40px] w-full rounded-xl border border-blue-200 bg-blue-50 px-3 text-xs font-bold text-blue-800 hover:bg-blue-100 disabled:opacity-60"
             >
               {syncingSteps ? 'Хадгалж байна...' : `Одоо хадгалах (+${pendingGeoSteps} алхам)`}
             </button>
@@ -280,7 +280,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
 
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-center gap-2">
-          <Smartphone className="h-4 w-4 text-emerald-600" />
+          <Smartphone className="h-4 w-4 text-blue-600" />
           <h2 className="font-display text-lg font-bold text-slate-900">Эрүүл мэндийн апп холбох</h2>
         </div>
 
@@ -302,7 +302,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
                   onClick={() => setSource(item.id as 'apple_health' | 'google_fit' | 'pedometer')}
                   className={`min-h-[38px] rounded-xl border px-2 text-[11px] font-semibold whitespace-nowrap ${
                     source === item.id
-                      ? 'border-emerald-600 bg-emerald-50 text-emerald-800'
+                      ? 'border-blue-600 bg-blue-50 text-blue-800'
                       : 'border-slate-200 bg-white text-slate-700'
                   }`}
                 >
@@ -316,7 +316,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
                 type="button"
                 disabled={busy}
                 onClick={() => handleBridgeSync(3200)}
-                className="min-h-[44px] rounded-xl border border-emerald-200 bg-emerald-50 px-2 text-[11px] font-bold text-emerald-900"
+                className="min-h-[44px] rounded-xl border border-blue-200 bg-blue-50 px-2 text-[11px] font-bold text-blue-900"
               >
                 +3,200
               </button>
@@ -324,7 +324,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
                 type="button"
                 disabled={busy}
                 onClick={() => handleBridgeSync(8500)}
-                className="min-h-[44px] rounded-xl bg-emerald-600 px-2 text-[11px] font-bold text-white"
+                className="min-h-[44px] rounded-xl bg-blue-600 px-2 text-[11px] font-bold text-white"
               >
                 +8,500
               </button>
@@ -342,7 +342,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
 
         <div className="mt-4 space-y-2 border-t border-slate-100 pt-3">
           <div className="flex items-center gap-1.5 text-xs font-bold text-slate-900">
-            <ShieldCheck className="h-4 w-4 text-emerald-600" />
+            <ShieldCheck className="h-4 w-4 text-blue-600" />
             Аюулгүй байдлын шалгалт
           </div>
           <button
@@ -374,12 +374,12 @@ export const StepsView: React.FC<StepsViewProps> = ({
           <div
             className={`mt-3 flex items-start gap-2 rounded-xl border p-3 text-xs ${
               feedback.kind === 'success'
-                ? 'border-emerald-200 bg-emerald-50 text-emerald-900'
+                ? 'border-blue-200 bg-blue-50 text-blue-900'
                 : 'border-rose-200 bg-rose-50 text-rose-800'
             }`}
           >
             {feedback.kind === 'success' ? (
-              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-blue-600" />
             ) : (
               <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-rose-600" />
             )}
@@ -404,7 +404,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
                   <p className="truncate font-semibold text-slate-900">{item.title}</p>
                   <p className="truncate text-[11px] text-slate-500">{item.detail}</p>
                 </div>
-                <span className={`tabular-nums font-bold ${item.type === 'earned' ? 'text-emerald-700' : 'text-rose-700'}`}>
+                <span className={`tabular-nums font-bold ${item.type === 'earned' ? 'text-blue-700' : 'text-rose-700'}`}>
                   {item.type === 'earned' ? `+${item.coins}` : `-${item.coins}`}
                 </span>
               </div>
@@ -412,7 +412,7 @@ export const StepsView: React.FC<StepsViewProps> = ({
             {wallet.batches.slice(0, 3).map((b) => (
               <div key={b.batchId} className="flex items-center justify-between px-1 text-[11px] text-slate-600">
                 <span className="flex items-center gap-1">
-                  <Lock className="h-3 w-3 text-emerald-600" />
+                  <Lock className="h-3 w-3 text-blue-600" />
                   {b.source} · {b.recordedAt}
                 </span>
                 <span className="tabular-nums font-bold text-slate-900">+{b.steps.toLocaleString('en-US')}</span>

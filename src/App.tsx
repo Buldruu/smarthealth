@@ -231,7 +231,7 @@ export function App() {
 
   if (!serverData) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-950 text-sm font-medium text-slate-300">
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-sm font-medium text-blue-100">
         Smart Health Mongolia ачаалж байна...
       </div>
     );
@@ -389,12 +389,12 @@ export function App() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-900 md:flex md:items-center md:justify-center md:px-6 md:py-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-slate-900 md:flex md:items-center md:justify-center md:px-6 md:py-6">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-10 lg:flex-row lg:items-center lg:justify-between">
         {/* Desktop Studio Companion Overview (keeps 1440px viewport balanced while highlighting the native mobile app) */}
         <aside className="hidden max-w-lg flex-col justify-center space-y-6 text-white lg:flex">
           <div className="space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-emerald-400">
+            <p className="text-xs font-semibold uppercase tracking-widest text-sky-400">
               iOS & Android · Эрүүл амьдралын апп
             </p>
             <h1 className="font-display text-5xl font-bold leading-[1.08] tracking-tight text-white [text-wrap:balance]">
@@ -405,21 +405,21 @@ export function App() {
             </p>
           </div>
 
-          <div className="space-y-3 border-t border-slate-800 pt-5 text-sm text-slate-300">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+          <div className="space-y-3 border-t border-blue-900/70 pt-5 text-sm text-slate-300">
+            <div className="flex items-center justify-between border-b border-blue-900/60 pb-2.5">
               <span>01. Зорилго бичих → AI төлөвлөгөө</span>
-              <span className="font-semibold text-emerald-400">
+              <span className="font-semibold text-sky-400">
                 {isOnboarded ? 'Бэлэн болсон' : 'Одоогийн алхам'}
               </span>
             </div>
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+            <div className="flex items-center justify-between border-b border-blue-900/60 pb-2.5">
               <span>02. Баталгаажсан алхам → Зоос</span>
               <span className="tabular-nums font-semibold text-amber-400">
                 {serverData.wallet.totalVerifiedSteps.toLocaleString('en-US')} алхам · {serverData.wallet.availableCoins} зоос
               </span>
             </div>
             <div className="flex items-center justify-between pb-1">
-              <span>03. Community · QR Купон · Түнш · Админ</span>
+              <span>03. Community · Даатгал · QR Купон · Админ</span>
               <span className="font-semibold text-slate-400">Бүрэн ажиллагаатай</span>
             </div>
           </div>
@@ -433,8 +433,8 @@ export function App() {
                   onClick={() => setActiveTab(id)}
                   className={`min-h-[42px] rounded-xl border px-2.5 text-xs font-semibold transition-colors whitespace-nowrap ${
                     activeTab === id
-                      ? 'border-emerald-500 bg-emerald-600 text-white'
-                      : 'border-slate-800 bg-slate-900 text-slate-300 hover:border-slate-700 hover:text-white'
+                      ? 'border-blue-500 bg-blue-600 text-white'
+                      : 'border-blue-900/70 bg-slate-900/80 text-slate-300 hover:border-blue-700 hover:text-white'
                   }`}
                 >
                   {label}
@@ -446,7 +446,7 @@ export function App() {
 
         {/* Interactive Mobile Application Frame (Full-screen native on mobile < md, authentic iPhone/Android frame on md+) */}
         <div className="flex w-full justify-center lg:w-auto">
-          <div className="relative flex min-h-screen w-full flex-col bg-slate-50 md:h-[820px] md:min-h-0 md:w-[402px] md:overflow-hidden md:rounded-[46px] md:border-[8px] md:border-slate-800 md:shadow-2xl">
+          <div className="relative flex min-h-screen w-full flex-col bg-[#f4f7fc] md:h-[820px] md:min-h-0 md:w-[402px] md:overflow-hidden md:rounded-[46px] md:border-[8px] md:border-slate-800 md:shadow-2xl">
             {/* Native Mobile Status Bar + Dynamic Notch (visible on md+ phone frame) */}
             <div className="hidden shrink-0 items-center justify-between bg-white px-6 pt-3 pb-1.5 text-[11px] font-bold text-slate-900 md:flex">
               <span className="tabular-nums">9:41</span>
@@ -458,21 +458,21 @@ export function App() {
             </div>
 
             {/* Compact App Top Bar */}
-            <header className="sticky top-0 z-20 flex h-12 shrink-0 items-center justify-between border-b border-slate-200 bg-white px-4">
-              <span className="font-display text-base font-bold tracking-tight text-slate-900 whitespace-nowrap">
+            <header className="sticky top-0 z-20 flex h-12 shrink-0 items-center justify-between border-b border-blue-100 bg-white px-4">
+              <span className="font-display text-base font-bold tracking-tight text-blue-950 whitespace-nowrap">
                 Smart Health Mongolia
               </span>
               {isOnboarded ? (
                 <button
                   type="button"
                   onClick={() => setActiveTab('rewards')}
-                  className="flex min-h-[34px] items-center gap-1 rounded-xl bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-800 whitespace-nowrap"
+                  className="flex min-h-[34px] items-center gap-1 rounded-xl bg-blue-50 px-2.5 py-1 text-xs font-bold text-blue-800 whitespace-nowrap"
                 >
-                  <Coins className="h-3.5 w-3.5 text-amber-600" />
+                  <Coins className="h-3.5 w-3.5 text-amber-500" />
                   <span className="tabular-nums">{serverData.wallet.availableCoins} зоос</span>
                 </button>
               ) : (
-                <span className="text-[11px] font-semibold text-emerald-700 whitespace-nowrap">
+                <span className="text-[11px] font-semibold text-blue-700 whitespace-nowrap">
                   Шинэ зорилго
                 </span>
               )}
@@ -487,7 +487,7 @@ export function App() {
             {isOnboarded && (
               <nav
                 aria-label="Үндсэн цэс"
-                className="fixed bottom-0 left-0 right-0 z-30 grid h-14 shrink-0 grid-cols-7 border-t border-slate-200 bg-white/95 backdrop-blur-md md:static"
+                className="fixed bottom-0 left-0 right-0 z-30 grid h-14 shrink-0 grid-cols-7 border-t border-blue-100 bg-white/95 backdrop-blur-md md:static"
               >
                 {TABS.map(({ id, label, Icon }) => {
                   const active = activeTab === id;
@@ -497,7 +497,7 @@ export function App() {
                       type="button"
                       onClick={() => setActiveTab(id)}
                       className={`flex min-h-[44px] flex-col items-center justify-center gap-0.5 px-0.5 transition-colors ${
-                        active ? 'text-emerald-700' : 'text-slate-500 hover:text-slate-800'
+                        active ? 'text-blue-600' : 'text-slate-500 hover:text-slate-800'
                       }`}
                     >
                       <Icon className="h-4 w-4 shrink-0" />

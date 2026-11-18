@@ -96,7 +96,7 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-[11px] font-semibold text-emerald-700">
+            <p className="text-[11px] font-semibold text-blue-700">
               Эрүүл мэндийн даатгал · 0 зоос хөнгөлөлт
             </p>
             <h1 className="font-display text-xl font-bold text-slate-900">Даатгал</h1>
@@ -106,7 +106,7 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
           </div>
           <div
             className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
-              insurance.enrolled ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-500'
+              insurance.enrolled ? 'bg-blue-50 text-blue-700' : 'bg-slate-100 text-slate-500'
             }`}
           >
             {insurance.enrolled ? <ShieldCheck className="h-5 w-5" /> : <Shield className="h-5 w-5" />}
@@ -114,13 +114,13 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
         </div>
 
         {insurance.enrolled && activePlan ? (
-          <div className="mt-3.5 space-y-2.5 rounded-xl border border-emerald-200 bg-emerald-50/70 p-3.5">
+          <div className="mt-3.5 space-y-2.5 rounded-xl border border-blue-200 bg-blue-50/70 p-3.5">
             <div className="flex items-start justify-between gap-2">
               <div>
-                <p className="text-[11px] font-semibold text-emerald-800">{activePlan.providerName}</p>
+                <p className="text-[11px] font-semibold text-blue-800">{activePlan.providerName}</p>
                 <p className="text-sm font-bold text-slate-900">{activePlan.planName}</p>
               </div>
-              <span className="text-[11px] font-bold text-emerald-800 whitespace-nowrap">
+              <span className="text-[11px] font-bold text-blue-800 whitespace-nowrap">
                 Идэвхтэй
               </span>
             </div>
@@ -137,7 +137,7 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
               <button
                 type="button"
                 onClick={onOpenRewards}
-                className="flex min-h-[40px] flex-1 items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-3 text-xs font-bold text-white hover:bg-emerald-700 whitespace-nowrap"
+                className="flex min-h-[40px] flex-1 items-center justify-center gap-1.5 rounded-xl bg-blue-600 px-3 text-xs font-bold text-white hover:bg-blue-700 whitespace-nowrap"
               >
                 Урамшуулал руу очих
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -161,7 +161,7 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
               value={policyInput}
               onChange={(e) => setPolicyInput(e.target.value)}
               placeholder="Жишээ: ARD-2026-8412"
-              className="min-h-[40px] w-full rounded-xl border border-slate-200 bg-white px-3 font-mono text-xs uppercase focus:border-emerald-600 focus:outline-none"
+              className="min-h-[40px] w-full rounded-xl border border-slate-200 bg-white px-3 font-mono text-xs uppercase focus:border-blue-600 focus:outline-none"
             />
           </div>
         )}
@@ -170,7 +170,7 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
           <div
             className={`mt-3 rounded-xl border px-3 py-2 text-xs ${
               feedback.kind === 'success'
-                ? 'border-emerald-200 bg-emerald-50 text-emerald-900'
+                ? 'border-blue-200 bg-blue-50 text-blue-900'
                 : 'border-rose-200 bg-rose-50 text-rose-800'
             }`}
           >
@@ -181,8 +181,8 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
 
       {/* Issued Free QR Coupon Preview */}
       {issuedCoupon && (
-        <section className="rounded-2xl border border-emerald-200 bg-white p-4 text-center">
-          <p className="text-[11px] font-bold text-emerald-700">
+        <section className="rounded-2xl border border-blue-200 bg-white p-4 text-center">
+          <p className="text-[11px] font-bold text-blue-700">
             Даатгалын үнэгүй QR купон · 0 зоос
           </p>
           <div className="my-3 flex justify-center">
@@ -201,12 +201,12 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
         <section className="space-y-2.5 rounded-2xl border border-slate-200 bg-white p-4">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Gift className="h-4 w-4 text-emerald-600" />
+              <Gift className="h-4 w-4 text-blue-600" />
               <h2 className="font-display text-lg font-bold text-slate-900">
                 Даатгалаар үнэгүй хөнгөлөлтүүд
               </h2>
             </div>
-            <span className="tabular-nums text-[11px] font-bold text-emerald-700">
+            <span className="tabular-nums text-[11px] font-bold text-blue-700">
               {freeOffersForActive.length} санал
             </span>
           </div>
@@ -229,7 +229,7 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
                     <p className="tabular-nums text-[11px] text-slate-400 line-through">
                       {offer.requiredCoins} зоос
                     </p>
-                    <p className="text-xs font-extrabold text-emerald-700 whitespace-nowrap">
+                    <p className="text-xs font-extrabold text-blue-700 whitespace-nowrap">
                       0 зоос · Үнэгүй
                     </p>
                   </div>
@@ -239,7 +239,7 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
                   type="button"
                   disabled={claimingOfferId === offer.id}
                   onClick={() => handleClaimFreeCoupon(offer.id)}
-                  className="mt-2.5 flex min-h-[40px] w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-3 text-xs font-bold text-white hover:bg-emerald-700 disabled:opacity-60"
+                  className="mt-2.5 flex min-h-[40px] w-full items-center justify-center gap-1.5 rounded-xl bg-blue-600 px-3 text-xs font-bold text-white hover:bg-blue-700 disabled:opacity-60"
                 >
                   <QrCode className="h-3.5 w-3.5" />
                   {claimingOfferId === offer.id ? 'Үүсгэж байна...' : 'Үнэгүй QR купон авах'}
@@ -270,13 +270,13 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
                 key={plan.id}
                 className={`rounded-xl border p-3.5 transition-colors ${
                   isActive
-                    ? 'border-emerald-600 bg-emerald-50/40'
+                    ? 'border-blue-600 bg-blue-50/40'
                     : 'border-slate-200 bg-white'
                 }`}
               >
                 <div className="flex items-start justify-between gap-2">
                   <div>
-                    <p className="text-[11px] font-semibold text-emerald-700">{plan.providerName}</p>
+                    <p className="text-[11px] font-semibold text-blue-700">{plan.providerName}</p>
                     <h3 className="text-sm font-bold text-slate-900">{plan.planName}</h3>
                   </div>
                   <span className="tabular-nums shrink-0 text-xs font-extrabold text-slate-900">
@@ -293,8 +293,8 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
                     Үнэгүй (0 зоос) авах хөнгөлөлтүүд:
                   </p>
                   {includedOffers.map((o) => (
-                    <p key={o.id} className="flex items-center gap-1.5 text-[11px] text-emerald-800">
-                      <Check className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                    <p key={o.id} className="flex items-center gap-1.5 text-[11px] text-blue-800">
+                      <Check className="h-3.5 w-3.5 shrink-0 text-blue-600" />
                       <span>
                         {o.partnerName} — {o.discountLabel}
                       </span>
@@ -313,7 +313,7 @@ export const InsuranceView: React.FC<InsuranceViewProps> = ({
                   onClick={() => handleEnroll(plan.id)}
                   className={`mt-3 flex min-h-[44px] w-full items-center justify-center gap-1.5 rounded-xl px-4 text-xs font-bold transition-colors ${
                     isActive
-                      ? 'border border-emerald-200 bg-emerald-100 text-emerald-900'
+                      ? 'border border-blue-200 bg-blue-100 text-blue-900'
                       : 'bg-slate-900 text-white hover:bg-slate-800'
                   }`}
                 >

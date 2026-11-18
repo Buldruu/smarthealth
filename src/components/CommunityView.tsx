@@ -107,7 +107,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
           <button
             type="button"
             onClick={() => updateConsent({ communityJoined: true })}
-            className="mt-4 min-h-[44px] w-full rounded-xl bg-emerald-600 px-4 py-2 text-xs font-bold text-white"
+            className="mt-4 min-h-[44px] w-full rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white"
           >
             Community-д нэгдэх
           </button>
@@ -262,7 +262,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-center justify-between gap-2">
           <div>
-            <p className="text-[11px] font-semibold text-emerald-700">Хоёр талын зөвшөөрөлтэй</p>
+            <p className="text-[11px] font-semibold text-blue-700">Хоёр талын зөвшөөрөлтэй</p>
             <h1 className="font-display text-xl font-bold text-slate-900">Community ба Бүлэг</h1>
           </div>
           <div className="flex items-center gap-1.5">
@@ -306,7 +306,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
         </div>
 
         {notice && (
-          <div className="mt-3 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-xs text-emerald-900">
+          <div className="mt-3 rounded-xl border border-blue-200 bg-blue-50 px-3 py-2 text-xs text-blue-900">
             {notice}
           </div>
         )}
@@ -327,7 +327,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                 type="button"
                 onClick={handleToggleChallenge}
                 className={`min-h-[36px] shrink-0 rounded-xl px-3 text-[11px] font-bold ${
-                  challenge.joined ? 'border border-emerald-200 bg-emerald-50 text-emerald-800' : 'bg-emerald-600 text-white'
+                  challenge.joined ? 'border border-blue-200 bg-blue-50 text-blue-800' : 'bg-blue-600 text-white'
                 }`}
               >
                 {challenge.joined ? 'Нэгдсэн' : 'Нэгдэх'}
@@ -360,7 +360,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                     type="button"
                     onClick={() => handleToggleGroup(grp.id)}
                     className={`min-h-[36px] shrink-0 rounded-xl px-3 text-[11px] font-bold ${
-                      grp.joined ? 'border border-emerald-200 bg-emerald-50 text-emerald-800' : 'bg-slate-900 text-white'
+                      grp.joined ? 'border border-blue-200 bg-blue-50 text-blue-800' : 'bg-slate-900 text-white'
                     }`}
                   >
                     {grp.joined ? 'Гарах' : 'Нэгдэх'}
@@ -373,7 +373,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                     onClick={() => handleOpenGroupChat(grp)}
                     className="mt-2.5 flex min-h-[38px] w-full items-center justify-center gap-1.5 rounded-xl bg-slate-100 px-3 text-xs font-semibold text-slate-800 hover:bg-slate-200"
                   >
-                    <MessageSquare className="h-3.5 w-3.5 text-emerald-600" />
+                    <MessageSquare className="h-3.5 w-3.5 text-blue-600" />
                     Бүлгийн чат нээх
                   </button>
                 )}
@@ -419,7 +419,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
               />
               <button
                 type="submit"
-                className="flex min-h-[40px] w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-600 text-xs font-bold text-white"
+                className="flex min-h-[40px] w-full items-center justify-center gap-1.5 rounded-xl bg-blue-600 text-xs font-bold text-white"
               >
                 <Plus className="h-3.5 w-3.5" />
                 Арга хэмжээ нийтлэх
@@ -430,7 +430,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
               <div key={evt.id} className="flex items-start justify-between gap-2 rounded-xl border border-slate-200 p-3">
                 <div>
                   <p className="flex items-center gap-1 text-[11px] text-slate-500">
-                    <Calendar className="h-3 w-3 text-emerald-600" />
+                    <Calendar className="h-3 w-3 text-blue-600" />
                     {evt.dateTimeLabel} · {evt.participants} оролцогч
                   </p>
                   <p className="mt-0.5 text-xs font-bold text-slate-900">{evt.title}</p>
@@ -442,7 +442,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                   type="button"
                   onClick={() => handleRsvp(evt.id)}
                   className={`min-h-[36px] shrink-0 rounded-xl px-3 text-[11px] font-bold ${
-                    evt.joined ? 'border border-emerald-200 bg-emerald-50 text-emerald-800' : 'border border-slate-300 text-slate-800'
+                    evt.joined ? 'border border-blue-200 bg-blue-50 text-blue-800' : 'border border-slate-300 text-slate-800'
                   }`}
                 >
                   {evt.joined ? 'Оролцоно' : 'Нэгдэх'}
@@ -464,7 +464,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
               type="button"
               onClick={() => updateConsent({ locationConsent: !consent.locationConsent })}
               className={`flex min-h-[38px] items-center gap-1 rounded-xl px-3 text-[11px] font-bold ${
-                consent.locationConsent ? 'border border-emerald-200 bg-emerald-50 text-emerald-800' : 'bg-emerald-600 text-white'
+                consent.locationConsent ? 'border border-blue-200 bg-blue-50 text-blue-800' : 'bg-blue-600 text-white'
               }`}
             >
               <MapPin className="h-3.5 w-3.5" />
@@ -484,7 +484,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                 <div key={person.id} className="rounded-xl border border-slate-200 p-3">
                   <div className="flex items-center justify-between">
                     <p className="text-xs font-bold text-slate-900">{person.displayName}</p>
-                    <span className="text-[11px] font-semibold text-emerald-700">
+                    <span className="text-[11px] font-semibold text-blue-700">
                       {person.mutualConsent === 'connected'
                         ? 'Хоёр тал зөвшөөрсөн'
                         : person.mutualConsent === 'pending_incoming'
@@ -507,7 +507,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                           setActiveChannelId(person.id);
                           setSubTab('chat');
                         }}
-                        className="flex min-h-[38px] flex-1 items-center justify-center gap-1 rounded-xl bg-emerald-600 text-xs font-bold text-white"
+                        className="flex min-h-[38px] flex-1 items-center justify-center gap-1 rounded-xl bg-blue-600 text-xs font-bold text-white"
                       >
                         <MessageSquare className="h-3.5 w-3.5" />
                         Чатлах
@@ -516,7 +516,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                       <button
                         type="button"
                         onClick={() => handleNearbyConnect(person.id)}
-                        className="flex min-h-[38px] flex-1 items-center justify-center gap-1 rounded-xl bg-emerald-600 text-xs font-bold text-white"
+                        className="flex min-h-[38px] flex-1 items-center justify-center gap-1 rounded-xl bg-blue-600 text-xs font-bold text-white"
                       >
                         <UserCheck className="h-3.5 w-3.5" />
                         Зөвшөөрөх
@@ -596,7 +596,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                     key={g.id}
                     type="button"
                     onClick={() => handleToggleGroup(g.id)}
-                    className="min-h-[40px] w-full rounded-xl bg-emerald-600 px-3 text-xs font-bold text-white"
+                    className="min-h-[40px] w-full rounded-xl bg-blue-600 px-3 text-xs font-bold text-white"
                   >
                     + {g.name} бүлэгт нэгдэх
                   </button>
@@ -618,7 +618,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                       }}
                       className={`min-h-[34px] shrink-0 rounded-full px-3 text-xs font-semibold whitespace-nowrap transition-colors ${
                         activeChannelId === g.id
-                          ? 'bg-emerald-600 text-white'
+                          ? 'bg-blue-600 text-white'
                           : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                       }`}
                     >
@@ -636,7 +636,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                       }}
                       className={`min-h-[34px] shrink-0 rounded-full px-3 text-xs font-semibold whitespace-nowrap transition-colors ${
                         activeChannelId === p.id
-                          ? 'bg-emerald-600 text-white'
+                          ? 'bg-blue-600 text-white'
                           : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                       }`}
                     >
@@ -664,7 +664,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                       className={`flex min-h-[36px] shrink-0 items-center gap-1.5 rounded-xl px-3 text-[11px] font-bold transition-colors whitespace-nowrap ${
                         showProposalModal
                           ? 'bg-slate-800 text-white'
-                          : 'bg-emerald-600 text-white hover:bg-emerald-700'
+                          : 'bg-blue-600 text-white hover:bg-blue-700'
                       }`}
                     >
                       <CalendarPlus className="h-3.5 w-3.5" />
@@ -695,7 +695,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                           <div
                             className={`max-w-[85%] rounded-2xl px-3.5 py-2 text-xs leading-relaxed ${
                               m.isMe
-                                ? 'rounded-br-sm bg-emerald-600 text-white'
+                                ? 'rounded-br-sm bg-blue-600 text-white'
                                 : 'rounded-bl-sm border border-slate-200 bg-white text-slate-800'
                             }`}
                           >
@@ -707,7 +707,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                           <div
                             className={`mt-1 w-[92%] overflow-hidden rounded-2xl border bg-white text-slate-900 transition-all ${
                               isSelected
-                                ? 'border-emerald-600 ring-2 ring-emerald-500/20 shadow-sm'
+                                ? 'border-blue-600 ring-2 ring-blue-500/20 shadow-sm'
                                 : 'border-slate-200 hover:border-slate-300 shadow-xs'
                             }`}
                           >
@@ -718,12 +718,12 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                               }
                               aria-pressed={isSelected}
                               className={`w-full p-3 text-left transition-colors ${
-                                isSelected ? 'bg-emerald-50/60' : 'bg-white hover:bg-slate-50/70'
+                                isSelected ? 'bg-blue-50/60' : 'bg-white hover:bg-slate-50/70'
                               }`}
                             >
                               <div className="flex items-start justify-between gap-2">
                                 <div className="min-w-0">
-                                  <p className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
+                                  <p className="text-[10px] font-bold uppercase tracking-wider text-blue-700">
                                     Хамтын эвент
                                   </p>
                                   <p className="mt-0.5 text-xs font-bold text-slate-900">
@@ -733,7 +733,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                                 <span
                                   className={`shrink-0 rounded-lg px-2 py-0.5 text-[10px] font-bold whitespace-nowrap ${
                                     isSelected
-                                      ? 'bg-emerald-600 text-white'
+                                      ? 'bg-blue-600 text-white'
                                       : 'bg-slate-100 text-slate-600'
                                   }`}
                                 >
@@ -745,29 +745,29 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                                 {proposal.date ? (
                                   <>
                                     <span className="inline-flex items-center gap-1 tabular-nums">
-                                      <Calendar className="h-3.5 w-3.5 text-emerald-600" />
+                                      <Calendar className="h-3.5 w-3.5 text-blue-600" />
                                       {proposal.date}
                                     </span>
                                     {proposal.time && (
                                       <span className="inline-flex items-center gap-1 tabular-nums">
-                                        <Clock className="h-3.5 w-3.5 text-emerald-600" />
+                                        <Clock className="h-3.5 w-3.5 text-blue-600" />
                                         {proposal.time}
                                       </span>
                                     )}
                                   </>
                                 ) : (
                                   <span className="inline-flex items-center gap-1">
-                                    <Clock className="h-3.5 w-3.5 text-emerald-600" />
+                                    <Clock className="h-3.5 w-3.5 text-blue-600" />
                                     {proposal.dateTimeLabel}
                                   </span>
                                 )}
                               </div>
 
                               {isSelected && (
-                                <div className="mt-2.5 rounded-xl border border-emerald-200 bg-white px-2.5 py-2 text-[11px] text-slate-700">
+                                <div className="mt-2.5 rounded-xl border border-blue-200 bg-white px-2.5 py-2 text-[11px] text-slate-700">
                                   <div className="flex items-center justify-between gap-2">
                                     <span>Зохион байгуулагч: {m.isMe ? 'Та' : m.senderName}</span>
-                                    <span className="font-semibold text-emerald-800">
+                                    <span className="font-semibold text-blue-800">
                                       {proposal.myResponse === 'going'
                                         ? 'Та оролцоно'
                                         : proposal.myResponse === 'not_going'
@@ -787,8 +787,8 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                                 aria-pressed={proposal.myResponse === 'going'}
                                 className={`tabular-nums flex min-h-[38px] flex-1 items-center justify-center gap-1 rounded-xl px-2.5 text-xs font-bold whitespace-nowrap transition-colors ${
                                   proposal.myResponse === 'going'
-                                    ? 'bg-emerald-600 text-white'
-                                    : 'border border-emerald-200 bg-white text-emerald-800 hover:bg-emerald-50'
+                                    ? 'bg-blue-600 text-white'
+                                    : 'border border-blue-200 bg-white text-blue-800 hover:bg-blue-50'
                                 }`}
                               >
                                 <Check className="h-3.5 w-3.5" />
@@ -821,10 +821,10 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
               {showProposalModal && (activeGroupObj || activeFriendObj) && (
                 <form
                   onSubmit={handleSubmitEventProposal}
-                  className="space-y-2.5 border-t border-emerald-200 bg-emerald-50/70 p-3.5"
+                  className="space-y-2.5 border-t border-blue-200 bg-blue-50/70 p-3.5"
                 >
                   <div className="flex items-center justify-between">
-                    <p className="text-xs font-bold text-emerald-950">Шинэ эвент үүсгэх</p>
+                    <p className="text-xs font-bold text-blue-950">Шинэ эвент үүсгэх</p>
                     <button
                       type="button"
                       onClick={() => setShowProposalModal(false)}
@@ -844,7 +844,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                       value={proposalTitle}
                       onChange={(e) => setProposalTitle(e.target.value)}
                       placeholder="Ж: Өглөөний 5 км хамтын алхалт"
-                      className="min-h-[40px] w-full rounded-xl border border-emerald-200 bg-white px-3 text-xs focus:border-emerald-600 focus:outline-none"
+                      className="min-h-[40px] w-full rounded-xl border border-blue-200 bg-white px-3 text-xs focus:border-blue-600 focus:outline-none"
                     />
                   </div>
 
@@ -858,7 +858,7 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                         required
                         value={proposalDate}
                         onChange={(e) => setProposalDate(e.target.value)}
-                        className="min-h-[40px] w-full rounded-xl border border-emerald-200 bg-white px-2.5 text-xs focus:border-emerald-600 focus:outline-none"
+                        className="min-h-[40px] w-full rounded-xl border border-blue-200 bg-white px-2.5 text-xs focus:border-blue-600 focus:outline-none"
                       />
                     </div>
                     <div>
@@ -870,14 +870,14 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                         required
                         value={proposalTime}
                         onChange={(e) => setProposalTime(e.target.value)}
-                        className="min-h-[40px] w-full rounded-xl border border-emerald-200 bg-white px-2.5 text-xs focus:border-emerald-600 focus:outline-none"
+                        className="min-h-[40px] w-full rounded-xl border border-blue-200 bg-white px-2.5 text-xs focus:border-blue-600 focus:outline-none"
                       />
                     </div>
                   </div>
 
                   <button
                     type="submit"
-                    className="flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-4 text-xs font-bold text-white hover:bg-emerald-700 whitespace-nowrap"
+                    className="flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-blue-600 px-4 text-xs font-bold text-white hover:bg-blue-700 whitespace-nowrap"
                   >
                     <CalendarPlus className="h-4 w-4" />
                     Чатад эвент оруулах
@@ -897,8 +897,8 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                   title="Эвент үүсгэх"
                   className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors ${
                     showProposalModal
-                      ? 'border-emerald-600 bg-emerald-600 text-white'
-                      : 'border-slate-200 bg-slate-50 text-emerald-700 hover:bg-emerald-50'
+                      ? 'border-blue-600 bg-blue-600 text-white'
+                      : 'border-slate-200 bg-slate-50 text-blue-700 hover:bg-blue-50'
                   }`}
                 >
                   <CalendarPlus className="h-4 w-4" />
@@ -908,12 +908,12 @@ export const CommunityView: React.FC<CommunityViewProps> = ({
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                   placeholder="Зурвас бичих..."
-                  className="min-h-[40px] flex-1 rounded-full border border-slate-200 bg-slate-50 px-4 text-xs focus:border-emerald-600 focus:bg-white focus:outline-none"
+                  className="min-h-[40px] flex-1 rounded-full border border-slate-200 bg-slate-50 px-4 text-xs focus:border-blue-600 focus:bg-white focus:outline-none"
                 />
                 <button
                   type="submit"
                   aria-label="Илгээх"
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white hover:bg-emerald-700"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700"
                 >
                   <Send className="h-4 w-4" />
                 </button>

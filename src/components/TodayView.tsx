@@ -58,16 +58,16 @@ export const TodayView: React.FC<TodayViewProps> = ({
   return (
     <div className="space-y-4 p-4 pb-6">
       {/* Step & Coin Hero App Card */}
-      <section className="rounded-3xl bg-slate-900 p-4 text-white">
+      <section className="rounded-3xl bg-gradient-to-br from-blue-950 via-blue-900 to-sky-900 p-4 text-white shadow-sm">
         <div className="flex items-center justify-between gap-2">
           <div>
-            <p className="text-[11px] font-medium text-slate-300">Сайн уу, {profile.name}</p>
+            <p className="text-[11px] font-medium text-blue-200">Сайн уу, {profile.name}</p>
             <h1 className="font-display text-xl font-bold text-white">Өнөөдрийн ахиц</h1>
           </div>
           <button
             type="button"
             onClick={() => onNavigate('rewards')}
-            className="flex min-h-[38px] items-center gap-1.5 rounded-2xl bg-amber-500/20 px-3 py-1.5 text-xs font-bold text-amber-300"
+            className="flex min-h-[38px] items-center gap-1.5 rounded-2xl bg-white/15 px-3 py-1.5 text-xs font-bold text-amber-300"
           >
             <Coins className="h-3.5 w-3.5" />
             <span className="tabular-nums">{wallet.availableCoins} зоос</span>
@@ -77,13 +77,13 @@ export const TodayView: React.FC<TodayViewProps> = ({
         <div className="mt-4 flex items-center gap-4">
           <div className="relative flex h-28 w-28 shrink-0 items-center justify-center">
             <svg className="h-28 w-28 -rotate-90" viewBox="0 0 108 108">
-              <circle cx="54" cy="54" r={radius} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="9" />
+              <circle cx="54" cy="54" r={radius} fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="9" />
               <motion.circle
                 cx="54"
                 cy="54"
                 r={radius}
                 fill="none"
-                stroke="#10b981"
+                stroke="#38bdf8"
                 strokeWidth="9"
                 strokeLinecap="round"
                 strokeDasharray={circumference}
@@ -96,34 +96,34 @@ export const TodayView: React.FC<TodayViewProps> = ({
               <span className="tabular-nums font-display text-xl font-bold text-white">
                 {liveRemainderSteps.toLocaleString('en-US')}
               </span>
-              <span className="tabular-nums text-[10px] text-slate-300">/ 8,000</span>
+              <span className="tabular-nums text-[10px] text-blue-200">/ 8,000</span>
             </div>
           </div>
 
           <div className="min-w-0 flex-1 space-y-1.5 text-xs">
             <div>
-              <p className="text-slate-400">Өнөөдрийн алхам</p>
+              <p className="text-blue-200">Өнөөдрийн алхам</p>
               <p className="tabular-nums text-base font-bold text-white">
                 {liveTodaySteps.toLocaleString('en-US')} алхам
               </p>
             </div>
             <div>
-              <p className="text-slate-400">Дараагийн зоос хүртэл</p>
-              <p className="tabular-nums font-semibold text-emerald-400">
+              <p className="text-blue-200">Дараагийн зоос хүртэл</p>
+              <p className="tabular-nums font-semibold text-sky-300">
                 {liveStepsToNextCoin.toLocaleString('en-US')} алхам дутуу
               </p>
             </div>
-            <p className="text-[11px] text-slate-400">Үлдэгдэл маргааш руу шилжинэ</p>
+            <p className="text-[11px] text-blue-200/80">Үлдэгдэл маргааш руу шилжинэ</p>
           </div>
         </div>
 
         <button
           type="button"
           onClick={() => void onToggleGpsTracking()}
-          className={`mt-4 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-xs font-bold text-white transition-colors ${
+          className={`mt-4 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-xs font-bold transition-colors ${
             gpsTracking
-              ? 'bg-rose-600 hover:bg-rose-500'
-              : 'bg-emerald-600 hover:bg-emerald-500'
+              ? 'bg-rose-600 text-white hover:bg-rose-500'
+              : 'bg-sky-400 text-slate-950 hover:bg-sky-300'
           }`}
         >
           {gpsTracking ? (
@@ -142,7 +142,7 @@ export const TodayView: React.FC<TodayViewProps> = ({
         </button>
 
         {gpsTracking && (
-          <p className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-emerald-300">
+          <p className="mt-2 flex items-center justify-center gap-1.5 text-[11px] text-sky-200">
             <Navigation className="h-3 w-3" />
             <span className="tabular-nums">
               {gpsStatus === 'requesting'
@@ -162,9 +162,9 @@ export const TodayView: React.FC<TodayViewProps> = ({
       </section>
 
       {/* User Goal Card */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-4">
+      <section className="rounded-2xl border border-blue-100 bg-white p-4">
         <div className="flex items-center justify-between text-xs text-slate-500">
-          <span className="font-semibold text-emerald-700">Миний зорилго</span>
+          <span className="font-semibold text-blue-700">Миний зорилго</span>
           <span className="tabular-nums">
             {completedCount}/{plan.actions.length} биелсэн
           </span>
@@ -173,13 +173,13 @@ export const TodayView: React.FC<TodayViewProps> = ({
       </section>
 
       {/* Today's 3 Small Actions */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-4">
+      <section className="rounded-2xl border border-blue-100 bg-white p-4">
         <div className="mb-2.5 flex items-center justify-between">
           <h2 className="font-display text-lg font-bold text-slate-900">Өнөөдрийн 3 жижиг үйлдэл</h2>
           <button
             type="button"
             onClick={() => onNavigate('ai')}
-            className="text-xs font-semibold text-emerald-700"
+            className="text-xs font-semibold text-blue-700"
           >
             Бүгд →
           </button>
@@ -196,14 +196,14 @@ export const TodayView: React.FC<TodayViewProps> = ({
               <span
                 className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
                   task.done
-                    ? 'border-emerald-600 bg-emerald-600 text-white'
+                    ? 'border-blue-600 bg-blue-600 text-white'
                     : 'border-slate-300 bg-white text-transparent'
                 }`}
               >
                 {task.done ? <Check className="h-3 w-3" /> : <Circle className="h-3 w-3" />}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-[11px] font-semibold text-emerald-700">
+                <p className="text-[11px] font-semibold text-blue-700">
                   {CATEGORY_LABEL[task.category] || 'Дадал'}
                 </p>
                 <p
@@ -221,16 +221,16 @@ export const TodayView: React.FC<TodayViewProps> = ({
       </section>
 
       {/* Daily AI Tip */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-4">
+      <section className="rounded-2xl border border-blue-100 bg-white p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-emerald-600" />
+            <Sparkles className="h-4 w-4 text-blue-600" />
             <h2 className="font-display text-base font-bold text-slate-900">Өдөр тутмын AI зөвлөгөө</h2>
           </div>
           <button
             type="button"
             onClick={() => onNavigate('ai')}
-            className="text-xs font-semibold text-emerald-700"
+            className="text-xs font-semibold text-blue-700"
           >
             Оройн дүгнэлт →
           </button>
@@ -242,16 +242,16 @@ export const TodayView: React.FC<TodayViewProps> = ({
       </section>
 
       {/* Active Nearby Group Preview */}
-      <section className="rounded-2xl border border-slate-200 bg-white p-4">
+      <section className="rounded-2xl border border-blue-100 bg-white p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Users className="h-4 w-4 text-emerald-600" />
+            <Users className="h-4 w-4 text-blue-600" />
             <h2 className="font-display text-base font-bold text-slate-900">Ойролцоох идэвхтэй бүлэг</h2>
           </div>
           <button
             type="button"
             onClick={() => onNavigate('community')}
-            className="flex items-center gap-1 text-xs font-semibold text-emerald-700"
+            className="flex items-center gap-1 text-xs font-semibold text-blue-700"
           >
             Нээх <ArrowRight className="h-3 w-3" />
           </button>

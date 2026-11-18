@@ -151,7 +151,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/40 to-transparent" />
           <div className="absolute bottom-3 left-3.5 right-3.5 text-white">
-            <p className="text-[11px] font-semibold text-emerald-300">
+            <p className="text-[11px] font-semibold text-blue-300">
               {step === 'goal' ? 'Алхам 1 / 2 · Эрүүл амьдралын зорилго' : 'Алхам 2 / 2 · Хувийн тохиргоо'}
             </p>
             <h1 className="font-display text-xl font-bold leading-tight [text-wrap:balance]">
@@ -175,7 +175,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
               value={goalText}
               onChange={(e) => setGoalText(e.target.value)}
               placeholder="Жишээ нь: Оройн хоолоо хөнгөлж, өдөр бүр 8,000 алхаад эрч хүчтэй болох..."
-              className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-600 focus:bg-white focus:outline-none"
+              className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-600 focus:bg-white focus:outline-none"
             />
 
             <div className="mt-3 space-y-1.5">
@@ -185,7 +185,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
                   key={idx}
                   type="button"
                   onClick={() => setGoalText(sample)}
-                  className="min-h-[42px] w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-left text-xs text-slate-700 hover:border-emerald-300 hover:bg-emerald-50/60"
+                  className="min-h-[42px] w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-left text-xs text-slate-700 hover:border-blue-300 hover:bg-blue-50/60"
                 >
                   {sample}
                 </button>
@@ -211,7 +211,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
             <button
               type="submit"
               disabled={loadingIntake}
-              className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white hover:bg-emerald-700 disabled:opacity-60"
+              className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 px-4 py-3 text-sm font-bold text-white hover:bg-blue-700 disabled:opacity-60"
             >
               {loadingIntake ? (
                 <>
@@ -232,7 +232,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
               onClick={handleContinueIntakeDemo}
               className="flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
             >
-              <Play className="h-3.5 w-3.5 text-emerald-600" />
+              <Play className="h-3.5 w-3.5 text-blue-600" />
               Шууд демо горимоор алхам 2 руу орох
             </button>
           </div>
@@ -240,8 +240,8 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
       ) : (
         <form onSubmit={handleGeneratePlan} className="space-y-3.5">
           {intake && (
-            <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-3.5 text-xs text-slate-800">
-              <p className="font-bold text-emerald-950">{intake.understoodGoal}</p>
+            <div className="rounded-2xl border border-blue-200 bg-blue-50/70 p-3.5 text-xs text-slate-800">
+              <p className="font-bold text-blue-950">{intake.understoodGoal}</p>
               <p className="mt-1 text-slate-700">{intake.encouragement}</p>
             </div>
           )}
@@ -252,7 +252,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
               <button
                 type="button"
                 onClick={() => setStep('goal')}
-                className="text-xs font-semibold text-emerald-700"
+                className="text-xs font-semibold text-blue-700"
               >
                 Зорилго засах
               </button>
@@ -351,7 +351,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
                 type="checkbox"
                 checked={motionConnected}
                 onChange={(e) => setMotionConnected(e.target.checked)}
-                className="h-4 w-4 rounded border-slate-300 text-emerald-600"
+                className="h-4 w-4 rounded border-slate-300 text-blue-600"
               />
               <span>Утасны алхалтын өгөгдөл холбох (8,000 алхам = 1 зоос)</span>
             </label>
@@ -360,7 +360,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
                 type="checkbox"
                 checked={locationConsent}
                 onChange={(e) => setLocationConsent(e.target.checked)}
-                className="h-4 w-4 rounded border-slate-300 text-emerald-600"
+                className="h-4 w-4 rounded border-slate-300 text-blue-600"
               />
               <span>Ойролцоох дүүргийн бүс хуваалцах (хоёр талын зөвшөөрлөөр)</span>
             </label>
@@ -369,7 +369,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
                 type="checkbox"
                 checked={communityJoined}
                 onChange={(e) => setCommunityJoined(e.target.checked)}
-                className="h-4 w-4 rounded border-slate-300 text-emerald-600"
+                className="h-4 w-4 rounded border-slate-300 text-blue-600"
               />
               <span>Community бүлгүүдэд нэгдэх (сонголттой)</span>
             </label>
@@ -393,7 +393,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
             <button
               type="submit"
               disabled={loadingPlan}
-              className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white hover:bg-emerald-700 disabled:opacity-60"
+              className="flex min-h-[48px] w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 px-4 py-3 text-sm font-bold text-white hover:bg-blue-700 disabled:opacity-60"
             >
               {loadingPlan ? (
                 <>
@@ -413,7 +413,7 @@ export const GoalOnboarding: React.FC<GoalOnboardingProps> = ({ initialConsent, 
               onClick={handleEnterTempDemoPlan}
               className="flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
             >
-              <Play className="h-3.5 w-3.5 text-emerald-600" />
+              <Play className="h-3.5 w-3.5 text-blue-600" />
               Түр демо горимоор шууд апп руу орох
             </button>
           </div>

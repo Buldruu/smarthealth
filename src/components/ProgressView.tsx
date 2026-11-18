@@ -89,7 +89,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
     <div className="space-y-4 p-4 pb-6">
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-center gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
             <User className="h-5 w-5" />
           </div>
           <div>
@@ -109,7 +109,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
           </div>
           <div className="rounded-xl bg-slate-50 p-2.5">
             <p className="text-[10px] text-slate-500">Олсон зоос</p>
-            <p className="tabular-nums text-sm font-bold text-emerald-700">{wallet.coinsEarned}</p>
+            <p className="tabular-nums text-sm font-bold text-blue-700">{wallet.coinsEarned}</p>
           </div>
           <div className="rounded-xl bg-slate-50 p-2.5">
             <p className="text-[10px] text-slate-500">Дүгнэлт</p>
@@ -121,14 +121,14 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
       <section className="rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <Camera className="h-4 w-4 text-emerald-600" />
+            <Camera className="h-4 w-4 text-blue-600" />
             <h2 className="font-display text-lg font-bold text-slate-900">Ахицын зураг</h2>
           </div>
           <button
             type="button"
             onClick={() => onUpdateConsent({ photoConsent: !consent.photoConsent })}
             className={`min-h-[36px] rounded-xl border px-3 text-[11px] font-bold ${
-              consent.photoConsent ? 'border-emerald-200 bg-emerald-50 text-emerald-800' : 'border-slate-300 text-slate-700'
+              consent.photoConsent ? 'border-blue-200 bg-blue-50 text-blue-800' : 'border-slate-300 text-slate-700'
             }`}
           >
             {consent.photoConsent ? 'Зөвшөөрсөн' : 'Зөвшөөрөх'}
@@ -148,7 +148,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
               placeholder="Тэмдэглэл (ж: 1-р долоо хоног)"
               className="min-h-[40px] w-full rounded-xl border border-slate-300 px-3 text-xs"
             />
-            <label className="flex min-h-[44px] cursor-pointer items-center justify-center gap-2 rounded-xl bg-emerald-600 text-xs font-bold text-white">
+            <label className="flex min-h-[44px] cursor-pointer items-center justify-center gap-2 rounded-xl bg-blue-600 text-xs font-bold text-white">
               <Upload className="h-4 w-4" />
               {uploading ? 'Оруулж байна...' : 'Зураг сонгож оруулах'}
               <input type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
@@ -181,7 +181,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
 
       <section className="space-y-2.5 rounded-2xl border border-slate-200 bg-white p-4">
         <div className="flex items-center gap-2">
-          <Shield className="h-4 w-4 text-emerald-600" />
+          <Shield className="h-4 w-4 text-blue-600" />
           <h2 className="font-display text-lg font-bold text-slate-900">Нууцлал ба Устгах</h2>
         </div>
 
@@ -196,7 +196,7 @@ export const ProgressView: React.FC<ProgressViewProps> = ({
               type="button"
               onClick={() => onUpdateConsent({ [item.key]: !consent[item.key] })}
               className={`min-h-[34px] rounded-lg px-3 text-[11px] font-bold ${
-                consent[item.key] ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700'
+                consent[item.key] ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700'
               }`}
             >
               {consent[item.key] ? 'Асаалттай' : 'Унтарсан'}

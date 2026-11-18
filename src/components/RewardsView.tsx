@@ -176,7 +176,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
         </div>
 
         <div className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-[11px]">
-          <span className={activePlan ? 'font-semibold text-emerald-800' : 'text-slate-600'}>
+          <span className={activePlan ? 'font-semibold text-blue-800' : 'text-slate-600'}>
             {activePlan
               ? `Даатгал идэвхтэй (${activePlan.planName}) · сонгогдсон хөнгөлөлт 0 зоос`
               : 'Даатгалд орсноор зарим хөнгөлөлтийг зоосгүй үнэгүй авна'}
@@ -184,7 +184,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
           <button
             type="button"
             onClick={onOpenInsurance}
-            className="shrink-0 font-bold text-emerald-700 hover:text-emerald-800 whitespace-nowrap"
+            className="shrink-0 font-bold text-blue-700 hover:text-blue-800 whitespace-nowrap"
           >
             {activePlan ? 'Багц харах' : 'Даатгал үзэх'}
           </button>
@@ -194,7 +194,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
           <div
             className={`mt-3 rounded-xl border px-3 py-2 text-xs ${
               feedback.kind === 'success'
-                ? 'border-emerald-200 bg-emerald-50 text-emerald-900'
+                ? 'border-blue-200 bg-blue-50 text-blue-900'
                 : 'border-rose-200 bg-rose-50 text-rose-800'
             }`}
           >
@@ -206,8 +206,8 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
       {roleView === 'user' && (
         <div className="space-y-4">
           {selectedCoupon && (
-            <section className="rounded-2xl border border-emerald-200 bg-white p-4 text-center">
-              <p className="text-[11px] font-bold uppercase text-emerald-700">
+            <section className="rounded-2xl border border-blue-200 bg-white p-4 text-center">
+              <p className="text-[11px] font-bold uppercase text-blue-700">
                 {selectedCoupon.requiredCoins === 0 ? 'Даатгалын үнэгүй QR' : 'Нэг удаагийн QR'} ·{' '}
                 {selectedCoupon.status === 'issued'
                   ? 'Идэвхтэй'
@@ -259,7 +259,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
                       <span className="tabular-nums mr-1.5 text-slate-400 line-through">
                         {offer.requiredCoins} зоос
                       </span>
-                      <strong className="text-emerald-700">0 зоос · Даатгалаар үнэгүй</strong> · Хүчинтэй:{' '}
+                      <strong className="text-blue-700">0 зоос · Даатгалаар үнэгүй</strong> · Хүчинтэй:{' '}
                       {offer.validUntil}
                     </p>
                   ) : (
@@ -267,7 +267,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
                       <strong className="tabular-nums text-amber-700">{offer.requiredCoins} зоос</strong> · Хүчинтэй:{' '}
                       {offer.validUntil}
                       {offer.insuranceFreeEligible && !insurance.enrolled && (
-                        <span className="ml-1.5 font-semibold text-emerald-700">
+                        <span className="ml-1.5 font-semibold text-blue-700">
                           · Даатгалаар үнэгүй болно
                         </span>
                       )}
@@ -280,7 +280,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
                     type="button"
                     disabled={!canAfford}
                     onClick={() => handleIssueCoupon(offer.id)}
-                    className="mt-1 flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-600 px-3 text-xs font-bold text-white hover:bg-emerald-700 disabled:bg-slate-200 disabled:text-slate-500"
+                    className="mt-1 flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-blue-600 px-3 text-xs font-bold text-white hover:bg-blue-700 disabled:bg-slate-200 disabled:text-slate-500"
                   >
                     <QrCode className="h-3.5 w-3.5" />
                     {isFreeWithInsurance
@@ -296,7 +296,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
 
           <section className="rounded-2xl border border-slate-200 bg-white p-4">
             <div className="flex items-center gap-2">
-              <Ticket className="h-4 w-4 text-emerald-600" />
+              <Ticket className="h-4 w-4 text-blue-600" />
               <h2 className="font-display text-lg font-bold text-slate-900">Миний купонууд</h2>
             </div>
             {coupons.length === 0 ? (
@@ -312,7 +312,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
                           c.status === 'issued'
                             ? 'text-amber-700'
                             : c.status === 'redeemed'
-                            ? 'text-emerald-700'
+                            ? 'text-blue-700'
                             : 'text-rose-700'
                         }`}
                       >
@@ -356,7 +356,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
         <div className="space-y-4">
           <section className="rounded-2xl border border-slate-200 bg-white p-4">
             <div className="flex items-center gap-2">
-              <Store className="h-4 w-4 text-emerald-600" />
+              <Store className="h-4 w-4 text-blue-600" />
               <h2 className="font-display text-lg font-bold text-slate-900">Түнш: Купон шалгах</h2>
             </div>
             <form onSubmit={handleVerifyCoupon} className="mt-3 space-y-2.5">
@@ -369,7 +369,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
               />
               <button
                 type="submit"
-                className="flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-600 text-xs font-bold text-white"
+                className="flex min-h-[42px] w-full items-center justify-center gap-1.5 rounded-xl bg-blue-600 text-xs font-bold text-white"
               >
                 <CheckCircle2 className="h-4 w-4" />
                 Баталгаажуулах (Зоос тооцох)
@@ -450,7 +450,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
                   type="checkbox"
                   checked={insuranceFreeEligible}
                   onChange={(e) => setInsuranceFreeEligible(e.target.checked)}
-                  className="h-4 w-4 accent-emerald-600"
+                  className="h-4 w-4 accent-blue-600"
                 />
                 Даатгалтай гишүүдэд зоосгүй үнэгүй олгох боломжтой
               </label>
@@ -465,7 +465,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
       {roleView === 'admin' && (
         <section className="space-y-2.5 rounded-2xl border border-slate-200 bg-white p-4">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-emerald-600" />
+            <ShieldCheck className="h-4 w-4 text-blue-600" />
             <h2 className="font-display text-lg font-bold text-slate-900">Админ: Түнш батлах</h2>
           </div>
           {adminOffers.map((item) => (
@@ -475,7 +475,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
                 <span
                   className={`text-[11px] font-bold ${
                     item.status === 'approved'
-                      ? 'text-emerald-700'
+                      ? 'text-blue-700'
                       : item.status === 'pending'
                       ? 'text-amber-700'
                       : 'text-rose-700'
@@ -489,7 +489,7 @@ export const RewardsView: React.FC<RewardsViewProps> = ({
                 <button
                   type="button"
                   onClick={() => handleAdminDecision(item.id, 'approved')}
-                  className="flex min-h-[36px] flex-1 items-center justify-center gap-1 rounded-xl bg-emerald-600 text-[11px] font-bold text-white"
+                  className="flex min-h-[36px] flex-1 items-center justify-center gap-1 rounded-xl bg-blue-600 text-[11px] font-bold text-white"
                 >
                   <CheckCircle2 className="h-3.5 w-3.5" />
                   Батлах
