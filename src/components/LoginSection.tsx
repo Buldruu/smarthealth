@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { LogIn, Mail, Smartphone, User, X } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Activity, LogIn, Mail, MapPin, Smartphone, User, X } from 'lucide-react';
 import { WALK_HERO_IMG } from '../constants/smartHealthData';
 
 interface LoginSectionProps {
@@ -50,44 +51,90 @@ export const LoginSection: React.FC<LoginSectionProps> = ({
 
   return (
     <div className={fullScreen ? 'space-y-4' : ''}>
-      {/* Welcome Banner Photo when shown as the first screen */}
+      {/* Full-bleed Running App Hero Cover */}
       {fullScreen && (
-        <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-slate-900">
-          <div className="h-[168px] w-full bg-gradient-to-br from-slate-800 to-slate-950">
-            {!heroError && (
-              <img
-                src={WALK_HERO_IMG}
-                alt="Улаанбаатарын үдшийн алхалтын зам ба Богд хан уул"
-                referrerPolicy="no-referrer"
-                onError={() => setHeroError(true)}
-                className="w-full h-full object-cover object-center"
-              />
-            )}
+        <div className="relative -mx-[18px] -mt-[56px] h-[296px] overflow-hidden bg-slate-950">
+          {!heroError && (
+            <img
+              src={WALK_HERO_IMG}
+              alt="Улаанбаатарын үдшийн алхалтын зам ба Богд хан уул"
+              referrerPolicy="no-referrer"
+              onError={() => setHeroError(true)}
+              className="w-full h-full object-cover object-center scale-[1.03]"
+            />
+          )}
+
+          {/* Smooth Scrim Melting Into Dark Slate Canvas */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-b from-slate-950/65 via-slate-950/25 to-[#0b1220]"
+          />
+
+          {/* Subtle Animated Running Route Line Overlay */}
+          <svg
+            viewBox="0 0 375 110"
+            fill="none"
+            aria-hidden="true"
+            className="absolute top-[52px] left-0 w-full h-[90px] pointer-events-none opacity-85"
+          >
+            <motion.path
+              d="M -10 78 Q 72 26, 148 64 T 302 36 T 390 54"
+              stroke="#fde047"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeDasharray="6 6"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.9 }}
+              transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            />
+            <motion.circle
+              cx="302"
+              cy="36"
+              r="4.5"
+              fill="#fde047"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 1.1, duration: 0.3 }}
+            />
+          </svg>
+
+          {/* Top Route Telemetry Line */}
+          <div className="absolute top-[56px] left-[18px] right-[18px] flex items-center justify-between text-[11px] font-semibold text-white/90">
+            <span className="flex items-center gap-1.5">
+              <MapPin size={12} className="text-amber-300" />
+              Улаанбаатар · 1,350м
+            </span>
+            <span className="flex items-center gap-1 text-amber-300">
+              <Activity size={12} />
+              Гүйлт ба Алхалт
+            </span>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/45 to-transparent flex flex-col justify-end p-4">
-            <p className="text-[11px] font-bold text-amber-300 uppercase tracking-wider">
+
+          {/* Bottom Athletic Proverb Headline */}
+          <div className="absolute bottom-3 left-[18px] right-[18px]">
+            <p className="text-[11px] font-bold text-amber-300 uppercase tracking-[0.12em]">
               Smart Health Mongolia
             </p>
-            <h1 className="text-[20px] font-extrabold text-white leading-snug mt-0.5">
+            <h1 className="font-athletic text-[28px] font-bold uppercase text-white leading-[1.08] tracking-tight mt-1">
               Мянган бээрийн аян ганц алхмаас эхэлнэ
             </h1>
-            <p className="text-xs text-slate-200 mt-1">
+            <p className="text-xs text-slate-200 mt-1.5">
               Алхам бүр эрүүл бие, эрч хүчний эхлэл.
             </p>
           </div>
         </div>
       )}
 
-      {/* Login Glass Card */}
+      {/* Sleek Running Club Login Card */}
       <div className="glass-panel rounded-3xl p-4 space-y-3.5">
         <div className="flex items-start justify-between gap-2">
           <div>
             <p className="text-[11px] font-semibold text-amber-300 uppercase tracking-wide">
-              Smart Health Бүртгэл
+              Тамирчны бүртгэл
             </p>
             <h2 className="text-base font-bold text-white flex items-center gap-1.5 mt-0.5">
               <LogIn size={16} className="text-amber-300" />
-              Нэвтрэх
+              Нэвтэрч эхлэх
             </h2>
           </div>
           {onClose && (
@@ -101,10 +148,6 @@ export const LoginSection: React.FC<LoginSectionProps> = ({
             </button>
           )}
         </div>
-
-        <p className="text-xs text-slate-200 leading-relaxed">
-          Зоос, үнэгүй тоглоом болон хөнгөлөлт авахын тулд эхлээд нэвтэрнэ үү.
-        </p>
 
         {/* Phone vs Email Selector */}
         <div className="grid grid-cols-2 gap-1.5 p-1 rounded-2xl bg-white/10">
@@ -203,14 +246,14 @@ export const LoginSection: React.FC<LoginSectionProps> = ({
 
           <button
             type="submit"
-            className="w-full min-h-[46px] rounded-2xl bg-amber-300 hover:bg-amber-200 text-slate-950 font-bold text-sm transition-colors cursor-pointer"
+            className="w-full min-h-[46px] rounded-2xl bg-amber-300 hover:bg-amber-200 text-slate-950 font-extrabold text-sm transition-colors cursor-pointer"
           >
             Нэвтэрч орох
           </button>
         </form>
 
         {/* Quick Demo Entry & Guest Mode */}
-        <div className="grid grid-cols-1 gap-2 pt-1">
+        <div className="grid grid-cols-1 gap-1.5 pt-0.5">
           <button
             type="button"
             onClick={() => onSignIn('Төрөө', '99118800')}
@@ -223,7 +266,7 @@ export const LoginSection: React.FC<LoginSectionProps> = ({
             <button
               type="button"
               onClick={onContinueGuest}
-              className="w-full min-h-[38px] rounded-xl text-slate-300 hover:text-white text-xs font-semibold transition-colors cursor-pointer"
+              className="w-full min-h-[36px] rounded-xl text-slate-300 hover:text-white text-xs font-semibold transition-colors cursor-pointer"
             >
               Нэвтрэхгүйгээр алхалт, ус ашиглах
             </button>
