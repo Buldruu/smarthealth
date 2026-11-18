@@ -57,7 +57,7 @@ export const LoginSection: React.FC<LoginSectionProps> = ({
             {!heroError && (
               <img
                 src={WALK_HERO_IMG}
-                alt="Улаанбаатарын алхалтын зам ба Богд хан уул"
+                alt="Улаанбаатарын үдшийн алхалтын зам ба Богд хан уул"
                 referrerPolicy="no-referrer"
                 onError={() => setHeroError(true)}
                 className="w-full h-full object-cover object-center"
@@ -68,11 +68,11 @@ export const LoginSection: React.FC<LoginSectionProps> = ({
             <p className="text-[11px] font-bold text-amber-300 uppercase tracking-wider">
               Smart Health Mongolia
             </p>
-            <h1 className="text-[22px] font-extrabold text-white leading-tight mt-0.5">
-              Алхаад зоос цуглуул, хөнгөлөлт ав
+            <h1 className="text-[20px] font-extrabold text-white leading-snug mt-0.5">
+              Мянган бээрийн аян ганц алхмаас эхэлнэ
             </h1>
             <p className="text-xs text-slate-200 mt-1">
-              8,000 алхам = 1 зоос · Мандаалай Фитнесс 40% хөнгөлөлт
+              Алхам бүр эрүүл бие, эрч хүчний эхлэл.
             </p>
           </div>
         </div>

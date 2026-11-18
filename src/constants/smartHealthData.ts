@@ -10,6 +10,7 @@ export const MANDAALAI_DISCOUNT_LABEL = '40% хөнгөлөлт';
 export const VOUCHER_VALID_DAYS = 7;
 
 export const WALK_HERO_IMG = '/src/assets/images/ulaanbaatar_walk_hero_1794897099371.jpg';
+export const RUN_HERO_IMG = '/src/assets/images/mongolia_running_today_1794955600350.jpg';
 export const MANDAALAI_IMG = '/src/assets/images/mandaalai_fitness_partner_1794897099910.jpg';
 export const COIN_EMBLEM_IMG = '/src/assets/images/mongolia_coin_emblem_1794897100434.jpg';
 

@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import {
   Droplets,
+  Flame,
   Footprints,
   Minus,
   Plus,
+  Route,
   Target,
   Coins,
   LogIn,
   User,
+  Play,
 } from 'lucide-react';
 import {
   MAX_DAILY_GAME_COINS,
   MAX_DAILY_WALK_COINS,
+  RUN_HERO_IMG,
   STEPS_PER_COIN,
   TabId,
   WALK_HERO_IMG,
@@ -31,6 +36,9 @@ interface TodayTabProps {
   onNavigateTab: (tab: TabId) => void;
   onOpenLogin: () => void;
 }
+
+const RADIAL_RING_PATH =
+  'M 68 12 A 56 56 0 1 1 68 124 A 56 56 0 1 1 68 12';
 
 export const TodayTab: React.FC<TodayTabProps> = ({
   userName,
@@ -52,10 +60,14 @@ export const TodayTab: React.FC<TodayTabProps> = ({
     MAX_DAILY_WALK_COINS,
     Math.floor(steps / STEPS_PER_COIN)
   );
-  const stepProgressPct = Math.min(100, Math.round((steps / stepGoal) * 100));
+  const stepRatio = Math.min(1, Math.max(0, steps / Math.max(1, stepGoal)));
+  const stepProgressPct = Math.round(stepRatio * 100);
+  const remainingSteps = Math.max(0, stepGoal - steps);
+  const estimatedKm = (steps * 0.00075).toFixed(1);
+  const estimatedKcal = Math.round(steps * 0.04);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3.5">
       {/* Header with Profile Avatar */}
       <div className="flex items-center justify-between gap-2">
         <button
@@ -79,7 +91,7 @@ export const TodayTab: React.FC<TodayTabProps> = ({
               Smart Health Mongolia
             </p>
             <h1 className="text-[19px] font-bold text-white tracking-tight truncate">
-              {userName ? `Сайн уу, ${userName}` : 'Өнөөдрийн эрүүл мэнд'}
+              {userName ? `Сайн уу, ${userName}` : 'Өнөөдрийн гүйлт'}
             </h1>
           </div>
         </button>
@@ -109,14 +121,13 @@ export const TodayTab: React.FC<TodayTabProps> = ({
 
       {/* Sign-In Callout or Profile Quick Link */}
       {!userName ? (
-        <div className="glass-panel rounded-3xl p-4 flex items-center justify-between gap-3">
+        <div className="glass-panel rounded-3xl p-3.5 flex items-center justify-between gap-3">
           <div className="min-w-0">
             <h2 className="text-sm font-bold text-white">
               Нэвтэрч зоосоо хадгалаарай
             </h2>
             <p className="text-xs text-slate-200 mt-0.5">
-              Тоглоом болон Мандаалай Фитнессийн 40% хөнгөлөлт нэвтэрсний дараа
-              нээгдэнэ.
+              Зоос, үнэгүй тоглоом болон хөнгөлөлтүүд нэвтэрсний дараа нээгдэнэ.
             </p>
           </div>
           <button
@@ -128,9 +139,9 @@ export const TodayTab: React.FC<TodayTabProps> = ({
           </button>
         </div>
       ) : (
-        <div className="glass-panel rounded-2xl px-3.5 py-2.5 flex items-center justify-between text-xs">
+        <div className="glass-panel rounded-2xl px-3.5 py-2 flex items-center justify-between text-xs">
           <span className="text-slate-200 truncate">
-            Профайл: <strong className="text-white">{userName}</strong>
+            Тамирчин: <strong className="text-white">{userName}</strong>
             {userContact ? ` · ${userContact}` : ''}
           </span>
           <button
@@ -138,69 +149,146 @@ export const TodayTab: React.FC<TodayTabProps> = ({
             onClick={() => onNavigateTab('settings')}
             className="text-amber-300 font-semibold hover:underline shrink-0 ml-2 cursor-pointer"
           >
-            Зураг &amp; Засах
+            Профайл
           </button>
         </div>
       )}
 
-      {/* Scenic Ulaanbaatar Walking Trail Picture Card */}
+      {/* Dynamic Hero Photo Card (changes image & words once signed in) */}
       <div className="relative rounded-3xl overflow-hidden border border-white/15 bg-slate-900">
-        <div className="h-[146px] w-full bg-gradient-to-br from-slate-800 to-slate-950">
+        <div className="h-[154px] w-full bg-gradient-to-br from-slate-800 to-slate-950">
           {!heroImgError && (
             <img
-              src={WALK_HERO_IMG}
-              alt="Улаанбаатар хотын алхалтын зам ба Богд хан уул"
+              src={userName ? RUN_HERO_IMG : WALK_HERO_IMG}
+              alt={
+                userName
+                  ? 'Улаанбаатарын Туул голын эргээр гүйж буй тамирчин'
+                  : 'Улаанбаатарын алхалтын зам ба Богд хан уул'
+              }
               referrerPolicy="no-referrer"
               onError={() => setHeroImgError(true)}
               className="w-full h-full object-cover object-center"
             />
           )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent flex flex-col justify-end p-4">
-          <p className="text-xs font-semibold text-amber-300">
-            Улаанбаатар · Өдрийн идэвх
-          </p>
-          <p className="text-sm font-semibold text-white mt-0.5">
-            Алхалт, ус болон зорилго нэвтрэхгүйгээр шууд ажиллана.
-          </p>
-        </div>
-      </div>
-
-      {/* Today's Steps & Goal Card */}
-      <div className="glass-panel rounded-3xl p-4 space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-2xl bg-sky-400/20 text-sky-200 flex items-center justify-center">
-              <Footprints size={18} />
-            </div>
-            <div>
-              <h2 className="text-sm font-bold text-white">Өнөөдрийн алхалт</h2>
-              <p className="text-xs text-slate-300">
-                Зорилго: {stepGoal.toLocaleString()} алхам
-              </p>
-            </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent flex items-end justify-between gap-2 p-4">
+          <div className="min-w-0">
+            <p className="text-[11px] font-bold text-amber-300 uppercase tracking-wide">
+              {userName ? 'Өнөөдрийн хэмнэл · Туул гол' : 'Өдрийн алхалт · Улаанбаатар'}
+            </p>
+            <p className="text-sm font-bold text-white mt-0.5 leading-snug">
+              {userName
+                ? 'Эрүүл биед саруул ухаан, алхам бүрд шинэ эрч хүч'
+                : 'Өглөөний цэвэр агаар — өдрийн эрүүл эхлэл'}
+            </p>
           </div>
-          <span className="text-lg font-extrabold text-white tabular-nums">
-            {steps.toLocaleString()}
-          </span>
-        </div>
-
-        <div className="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
-          <div
-            className="h-full rounded-full bg-amber-300 transition-all duration-300"
-            style={{ width: `${stepProgressPct}%` }}
-          />
-        </div>
-
-        <div className="flex items-center justify-between text-xs text-slate-200">
-          <span className="tabular-nums">Биелэлт: {stepProgressPct}%</span>
           <button
             type="button"
             onClick={() => onNavigateTab('walk')}
-            className="font-semibold text-amber-300 hover:underline cursor-pointer"
+            className="min-h-[38px] px-3.5 rounded-full bg-amber-300 hover:bg-amber-200 text-slate-950 text-xs font-extrabold flex items-center gap-1.5 shrink-0 cursor-pointer transition-colors"
           >
-            Алхалт нэмэх →
+            <Play size={13} fill="currentColor" />
+            Гүйх
           </button>
+        </div>
+      </div>
+
+      {/* Athletic Radial Progress Ring & Running Telemetry Card */}
+      <div className="glass-panel rounded-3xl p-4">
+        <div className="flex items-center gap-4">
+          {/* Animated SVG Path Radial Progress Bar */}
+          <div className="relative w-[124px] h-[124px] shrink-0 flex items-center justify-center">
+            <svg
+              viewBox="0 0 136 136"
+              className="w-full h-full"
+              aria-label={`Өдрийн алхалтын зорилгын биелэлт ${stepProgressPct}%`}
+            >
+              <defs>
+                <linearGradient
+                  id="runRingGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" stopColor="#fde047" />
+                  <stop offset="100%" stopColor="#38bdf8" />
+                </linearGradient>
+              </defs>
+
+              {/* Background Track Path */}
+              <path
+                d={RADIAL_RING_PATH}
+                fill="none"
+                stroke="rgba(255, 255, 255, 0.12)"
+                strokeWidth="10"
+                strokeLinecap="round"
+              />
+
+              {/* Motion-Animated Progress Path */}
+              <motion.path
+                d={RADIAL_RING_PATH}
+                fill="none"
+                stroke="url(#runRingGradient)"
+                strokeWidth="10"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: stepRatio }}
+                transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              />
+            </svg>
+
+            {/* Center Ring Percentage & Icon */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+              <Footprints size={15} className="text-amber-300 mb-0.5" />
+              <span className="text-[24px] font-extrabold text-white leading-none tabular-nums">
+                {stepProgressPct}%
+              </span>
+              <span className="text-[10px] font-semibold text-slate-300 mt-1">
+                Зорилго
+              </span>
+            </div>
+          </div>
+
+          {/* Right-side Running Metrics */}
+          <div className="min-w-0 flex-1 space-y-2.5">
+            <div>
+              <p className="text-[11px] font-semibold text-slate-300">
+                Өнөөдрийн алхам
+              </p>
+              <p className="text-[24px] font-extrabold text-white leading-tight tabular-nums">
+                {steps.toLocaleString()}
+              </p>
+              <p className="text-[11px] text-slate-200 tabular-nums">
+                {remainingSteps > 0
+                  ? `Үлдсэн: ${remainingSteps.toLocaleString()} / ${stepGoal.toLocaleString()}`
+                  : `Зорилго (${stepGoal.toLocaleString()}) биеллээ!`}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2 pt-2 border-t border-white/10">
+              <div className="flex items-center gap-1.5">
+                <Route size={13} className="text-sky-300 shrink-0" />
+                <div>
+                  <p className="text-[10px] text-slate-300 leading-none">Зай</p>
+                  <p className="text-xs font-bold text-white tabular-nums mt-0.5">
+                    {estimatedKm} км
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Flame size={13} className="text-amber-300 shrink-0" />
+                <div>
+                  <p className="text-[10px] text-slate-300 leading-none">
+                    Илчлэг
+                  </p>
+                  <p className="text-xs font-bold text-white tabular-nums mt-0.5">
+                    {estimatedKcal} ккал
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
